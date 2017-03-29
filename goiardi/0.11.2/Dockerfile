@@ -1,7 +1,6 @@
 FROM golang:1.8-alpine
 
-# This is set to the most recent goiardi release when the image was built
-ENV GOIARDI_VERSION=v0.11.3
+ENV GOIARDI_VERSION=v0.11.2
 
 RUN set -ex \
 	&& apk add --no-cache --virtual .build-deps \

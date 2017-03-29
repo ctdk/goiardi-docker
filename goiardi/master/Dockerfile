@@ -1,7 +1,6 @@
 FROM golang:1.8-alpine
 
-# This is set to the most recent goiardi release when the image was built
-ENV GOIARDI_VERSION=v0.11.3
+# Install whatever's in goiardi master right now
 
 RUN set -ex \
 	&& apk add --no-cache --virtual .build-deps \
@@ -9,7 +8,6 @@ RUN set -ex \
 		mercurial 
 RUN go get -v -d github.com/ctdk/goiardi \
 	&& cd /go/src/github.com/ctdk/goiardi \
-	&& if [ -n $GOIARDI_VERSION ]; then git checkout $GOIARDI_VERSION; fi \
 	&& go install github.com/ctdk/goiardi \
 	&& apk del .build-deps
 
