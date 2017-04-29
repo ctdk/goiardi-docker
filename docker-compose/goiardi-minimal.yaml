@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  goiardi:
+    image: ctdk/goiardi:latest
+    hostname: goiardi
+    ports:
+      - "4545:4545"
+    volumes:
+      - /etc/goiardi
+      - /var/lib/goiardi
