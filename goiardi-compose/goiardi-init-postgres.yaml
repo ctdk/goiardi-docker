@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:alpine
+    ports:
+      - "15432:5432"
+    volumes: 
+      - pg-data:/var/lib/postgresql/data
+  sqitch:
+    image: ctdk/goiardi-sqitch
+    env_file: ./env.list
+    entrypoint: /supporting-files/postgres-init.sh
+    depends_on:
+      - db
+
+volumes:
+  pg-data:
