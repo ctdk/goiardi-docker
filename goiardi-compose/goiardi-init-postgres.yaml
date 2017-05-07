@@ -9,7 +9,7 @@ services:
       - pg-data:/var/lib/postgresql/data
   sqitch:
     image: ctdk/goiardi-sqitch
-    env_file: ./env.list
+    env_file: ./postgres.env
     entrypoint: /supporting-files/postgres-init.sh
     depends_on:
       - db
