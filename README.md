@@ -13,7 +13,7 @@ Layout
 
 * `goiardi/` - The various goiardi Dockerfiles are in here. The `latest` one, oddly enough, has whatever's in the latest master branch. Dockerfiles for specific releases are in subdirectories here as well, at least when they get made.
 
-* `docker-compose/` - docker-compose configs for different goiardi configurations.
+* `goiardi-compose/` - docker-compose configs for different goiardi configurations. Currently, there are configs for a minimal in-memory goiardi, one to initialize the database for postgres, and one to run goiardi and postgres together.
 
 * `supporting-images/` - a variety of Dockerfiles that are not required to run goiardi in docker, but may be helpful for certain configurations. These images are:
 

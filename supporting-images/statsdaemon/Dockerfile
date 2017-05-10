@@ -9,4 +9,7 @@ RUN go get -v -u github.com/raintank/statsdaemon/cmd/statsdaemon && \
 
 COPY statsdaemon.ini /etc/statsdaemon.ini
 
+EXPOSE 8125/udp
+EXPOSE 8126
+
 ENTRYPOINT [ "/go/bin/statsdaemon" ]
