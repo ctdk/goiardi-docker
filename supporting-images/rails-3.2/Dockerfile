@@ -13,16 +13,14 @@ RUN \
   gem install --no-ri --no-rdoc bundler
   
 RUN gem install nokogiri --no-ri --no-rdoc --version 1.6.8.1 -- --use-system-libraries && \
+  gem install rake --no-ri --no-rdoc --version 11.2.2 && \
   gem install rails --no-ri --no-rdoc --version "$RAILS_VERSION" && \
   echo 'gem: --no-document' >> ~/.gemrc && \
   cp ~/.gemrc /etc/gemrc && \
   chmod uog+r /etc/gemrc && \
-
-  # cleanup and settings
+  apt-get clean && \
   bundle config --global build.nokogiri  "--use-system-libraries" && \
   bundle config --global build.nokogumbo "--use-system-libraries" && \
-  find / -type f -iname \*.apk-new -delete && \
-  rm -rf /var/cache/apk/* && \
   rm -rf /usr/lib/lib/ruby/gems/*/cache/* && \
   rm -rf ~/.gem
 
