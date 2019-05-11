@@ -1,4 +1,4 @@
-FROM golang:1.8-alpine
+FROM golang:1.12-alpine
 
 # Set GOIARDI_VERSION with --build-arg (e.g. --build-arg GOIARDI_VERSION=0.11.4)
 # to build a specific goiardi version. If nothing is specified, it will build
