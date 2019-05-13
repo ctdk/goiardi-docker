@@ -24,3 +24,5 @@ Layout
   * `webui` - runs the old chef-server-webui rails app. Depends on:
 
   * `rails-3.2` - provides rails 3.2 for the webui. The only one of these docker images that's built off of a Debian image (specifically, wheezy), because between the various dependencies of the webui getting it to work with a newer version of ruby than 1.9.3 is a massive headache. If you don't need to run the webui you'd be well advised not to.
+
+  * `chef-browser` - An alternative webui for the open source Chef 11 server and goiardi, this interface is read only but is newer than the old webui. If you must run a webui, this is the better choice.
