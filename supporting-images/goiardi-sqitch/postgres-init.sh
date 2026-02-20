@@ -19,6 +19,6 @@ cd /src/goiardi-schema/postgres
 
 sqitch deploy db:pg://$POSTGRES_USER:@$GOIARDI_POSTGRESQL_HOST/$GOIARDI_POSTGRESQL_DBNAME
 
-sed 's/_GOIARDI_DB_/'$GOIARDI_POSTGRESQL_DBNAME'/g; s/_GOIARDI_USER_/'$GOIARDI_POSTGRESQL_USERNAME'/g;' < /supporting-files/alter-postgres.sql | psql -U $POSTGRES_USER -h $GOIARDI_POSTGRESQL_HOST -d $GOIARDI_POSTGRESQL_DBNAME
+sed 's/_GOIARDI_DB_/'$GOIARDI_POSTGRESQL_DBNAME'/g; s/_GOIARDI_USER_/'$GOIARDI_POSTGRESQL_USERNAME'/g; s/_GOIARDI_PASSWORD_/'$GOIARDI_POSTGRESQL_PASSWORD'/g;' < /supporting-files/alter-postgres.sql | psql -U $POSTGRES_USER -h $GOIARDI_POSTGRESQL_HOST -d $GOIARDI_POSTGRESQL_DBNAME
 
 >&2 echo "finished initializing goiardi database"

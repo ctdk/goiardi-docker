@@ -7,9 +7,13 @@ services:
       - "15432:5432"
     volumes: 
       - pg-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=foobarbaz123
   sqitch:
     image: ctdk/goiardi-sqitch
     env_file: ./postgres.env
+    environment:
+      - PGPASSWORD=foobarbaz123
     entrypoint: /supporting-files/postgres-init.sh
     depends_on:
       - db

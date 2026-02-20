@@ -1,4 +1,4 @@
-FROM golang:1.12-alpine
+FROM golang:1.26-alpine
 
 # Set GOIARDI_VERSION with --build-arg (e.g. --build-arg GOIARDI_VERSION=0.11.4)
 # to build a specific goiardi version. If nothing is specified, it will build
@@ -10,7 +10,9 @@ RUN set -ex \
 	&& apk add --no-cache --virtual .build-deps \
 		git \
 		mercurial 
-RUN go get -v -d github.com/ctdk/goiardi \
+RUN mkdir -p /go/src/github.com/ctdk \
+	&& cd /go/src/github.com/ctdk \
+	&& git clone https://github.com/ctdk/goiardi.git \
 	&& cd /go/src/github.com/ctdk/goiardi \
 	&& if [ -n $GOIARDI_VERSION ]; then git checkout $GOIARDI_VERSION; fi \
 	&& go install github.com/ctdk/goiardi \
